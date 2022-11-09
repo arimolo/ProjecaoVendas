@@ -1,0 +1,182 @@
+// Global variable overrides. Must be declared before importing Valo.
+
+// Defines the plaintext font size, weight and family. Font size affects general component sizing.
+//$v-font-size: 16px;
+//$v-font-weight: 300;
+//$v-font-family: "Open Sans", sans-serif;
+
+// Defines the border used by all components.
+//$v-border: 1px solid (v-shade 0.7);
+//$v-border-radius: 4px;
+
+// Affects the color of some component elements, e.g Button, Panel title, etc
+//$v-background-color: hsl(210, 0%, 98%);
+// Affects the color of content areas, e.g  Panel and Window content, TextField input etc
+//$v-app-background-color: $v-background-color;
+
+// Affects the visual appearance of all components
+//$v-gradient: v-linear 8%;
+//$v-bevel-depth: 30%;
+//$v-shadow-opacity: 5%;
+
+// Defines colors for indicating status (focus, success, failure)
+//$v-focus-color: valo-focus-color(); // Calculates a suitable color automatically
+//$v-friendly-color: #2c9720;
+//$v-error-indicator-color: #ed473b;
+
+// For more information, see: https://vaadin.com/book/-/page/themes.valo.html
+// Example variants can be copy/pasted from https://vaadin.com/wiki/-/wiki/Main/Valo+Examples
+
+@import "../valo/valo.scss";
+
+$v-luminance-threshold: 180 !default;
+
+$editor-background-color: #3b3f42 !default;
+$valo-menu-background-color: $editor-background-color !default;
+
+$v-focus-color: rgb(96, 160, 234) !default;
+$v-error-indicator-color: #eb2140 !default;
+$v-friendly-color: rgb(54, 185, 85);
+$v-login-bg-color: rgb(0, 0, 0) !default;
+
+$v-font-size: 15px !default;
+$v-font-weight: 400 !default;
+$v-unit-size: 32px !default;
+
+$login-info-width: 300px !default;
+$login-info-opacity: 0.7 !default;
+$login-background-color: $editor-background-color !default;
+// Get more background images from unsplash.com (remember to optimize the filesize)
+$login-background-image: "img/background2.jpg" !default;
+
+$editor-shadow: 0 0 10px 10px rgba(0,0,0,.1) !default;
+$editor-embed-background-color: darken($editor-background-color, 5%) !default;
+$editor-raised-background-color: lighten($editor-background-color, 10%) !default;
+$editor-caption-font-color: valo-font-color($editor-background-color, 0.5) !default;
+
+$v-layout-margin: round($v-unit-size / 1.5) !default;
+$v-layout-margin-top: round($v-unit-size / 1.5) !default;
+$v-layout-margin-right: $v-layout-margin-top !default;
+$v-layout-margin-bottom: $v-layout-margin-top !default;
+$v-layout-margin-left: $v-layout-margin-top !default;
+$v-layout-spacing-vertical: round($v-unit-size / 1.8) !default;
+$v-layout-spacing-horizontal: round($v-unit-size / 1.8) !default;
+
+@mixin mytheme {
+  @include valo;
+
+  .v-table.wordwrap-headers .v-table-header-wrap {
+    height: auto;
+  }
+
+  .v-table.wordwrap-headers .v-table-header {
+    min-height: 20px;
+    height: auto;
+  }
+
+  .v-table.wordwrap-headers .v-table-header-cell {
+    vertical-align: top;
+    position: relative;
+  }
+
+  .v-table.wordwrap-headers .v-table-resizer {
+    height: 500px;
+    float: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 2px;
+  }
+
+  .v-table.wordwrap-headers .v-table-caption-container {
+    white-space: normal;
+  }
+
+  .v-table.wordwrap-headers td.v-table-header-cell,
+  .v-table.wordwrap-headers td.v-table-header-cell-desc,
+  .v-table.wordwrap-headers td.v-table-header-cell-asc {
+    display: inline-block !important;
+    position: relative;
+  }
+
+  .mybarmenu {
+    border-style: none;
+  }
+
+  .mybarmenu .v-menubar-menuitem-highlight {
+    background: #96c8ff;
+  }
+
+  .v-textfield-my-text-number{
+    text-align:right !important;
+    font-size: smaller;
+    height: 24px;
+    width: 120px;
+  }
+
+  .right {
+    text-align:right !important;
+  }
+
+  .metaMensalPanelOk {
+    padding: 12px;
+    background-color: $v-friendly-color;
+    color: #FFFFFF;
+  }
+
+  .metaMensalPanelFail {
+    padding: 12px;
+    background-color: $v-error-indicator-color;
+    color: #FFFFFF;
+  }
+
+  .login-screen {
+    background: $editor-background-color;
+
+    @if $login-background-image {
+      background-image: url(#{$login-background-image});
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+
+    width: 100%;
+    height: 100%;
+
+    .login-form {
+      @include valo-panel-style;
+      border: none;
+      padding: $v-layout-margin;
+      @include valo-animate-in-fade($duration: 1s);
+      background-color: rgba(#FFFFFF, 0.85);
+    }
+
+    .login-information {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $login-info-width;
+      height: 100%;
+      background: $v-selection-color; // For IE8
+      background-color: rgba($v-login-bg-color, $login-info-opacity);
+      padding: $v-layout-margin;
+      color: valo-font-color($v-selection-color, 0.9);
+      @include animation(valo-animate-in-fade 1s 1s backwards);
+
+      h1 {
+        color: inherit;
+      }
+    }
+
+    .centering-layout {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      padding-left: $login-info-width;
+
+      .v-slot {
+        height: 100%;
+      }
+    }
+  }
+}
