@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="SQL Server - Venda@192.168.0.4" uuid="0a2f2c84-a8c7-422e-bcd9-a20df2d717b7">
+      <driver-ref>sqlserver.jtds</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>net.sourceforge.jtds.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:jtds:sqlserver://192.168.0.4:1433/Venda</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="DADOSHF@192.168.0.11" uuid="106ccf7d-26dd-48b9-8e5b-b35ffc32abd2">
+      <driver-ref>sqlserver.jtds</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>net.sourceforge.jtds.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:jtds:sqlserver://192.168.0.11/DADOSHF</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="DADOSHF_DEV@192.168.0.11" uuid="15a5dc1b-5cae-4b71-a340-914a5e39916a">
+      <driver-ref>sqlserver.jtds</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>net.sourceforge.jtds.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:jtds:sqlserver://192.168.0.11/DADOSHF_DEV</jdbc-url>
+    </data-source>
+  </component>
+</project>

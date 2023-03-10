@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HortPanelDataServices:war">
+    <output-path>$PROJECT_DIR$/HortPanelDataServices/target</output-path>
+    <root id="archive" name="HortPanelDataServices-1.2.0.war">
+      <element id="artifact" artifact-name="HortPanelDataServices:war exploded" />
+    </root>
+  </artifact>
+</component>
